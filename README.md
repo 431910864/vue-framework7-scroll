@@ -33,3 +33,9 @@ yarn build
 
 效果演示
 ====
+
+
+[demo地址](https://shop.muyouke.com/sindex.html)（请用chrome手机模式预览）
+
+### 效果图
+<img src='https://github.com/431910864/vue-framework7-scroll/blob/master/src/assets/images/gif1.gif' width="320" height="568" />
