@@ -2,13 +2,11 @@
 ====
 >跳转页面 路由不变化 禁止了回退事件<br/>
 
->使用framework7框架 http://framework7.io/<br/>
+>使用[framework7](http://framework7.io/)框架 
 
->vue-cli 3.0 创建和运行都有所不同 https://cli.vuejs.org/
+>[vue-cli 3.0](https://cli.vuejs.org/) 创建和运行都有所不同
 
->滑动插件使用了alloyfinger和better-scroll https://github.com/ustbhuangyi/better-scroll/ 触摸和滚轮都可以触发滑动事件
-
->模仿ios的tab滑动
+>滑动插件使用了[alloyfinger](https://github.com/AlloyTeam/AlloyFinger)和[better-scroll](https://github.com/ustbhuangyi/better-scroll/) 触摸和滚轮滚动都可以触发滑动事件
 
 >修改配置文件 在vue.config.js中修改
 
