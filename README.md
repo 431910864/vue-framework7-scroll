@@ -14,14 +14,24 @@
 
 项目运行（nodejs 6.0+）
 ====
+``` bash
+# 克隆到本地
+git clone https://github.com/431910864/vue-framework7-scroll.git
 
+# 安装cli
 npm install -g @vue/cli
 
+# 进入文件夹
 cd vue-framework7-scroll
 
+# 安装依赖
 npm install
 
+# 开启本地服务器
 yarn serve
+
+# 发布环境
+yarn build
 
 效果演示
 ====
