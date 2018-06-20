@@ -39,3 +39,5 @@ yarn build
 
 ### 效果图
 <img src='https://github.com/431910864/vue-framework7-scroll/blob/master/src/assets/images/gif1.gif' width="320" height="568" />
+
+
