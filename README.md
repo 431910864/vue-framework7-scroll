@@ -30,6 +30,7 @@ yarn serve
 
 # 发布环境
 yarn build
+```
 
 效果演示
 ====
