@@ -10,6 +10,8 @@
 
 >模仿ios的tab滑动
 
+>修改配置文件 在vue.config.js中修改
+
 项目运行（nodejs 6.0+）
 ====
 
