@@ -163,124 +163,15 @@ export function getTime1(nS) {
 		return " ";
 	}
 }
-export async function oss(url,resut,src){
-	return new Promise(async (resolve, reject) => {
-		let merchantinfoId = merchant.call(this);
-		let rs = res =>{
-			let data = {}
-			let query = GetRequest();
-			let ossBaseurl = null;
-			let isOss = ['accessKeyId','accessKeySecret','bucket','endpoint','baseurl']
-			for(var os in isOss){
-				if(!query[isOss[os]]){
-					return false;
-				}else{
-					if(isOss[os] == 'baseurl'){
-						ossBaseurl = query[isOss[os]];
-					}else{
-						console.info()
-						data[isOss[os]] = query[isOss[os]];
-					}
-				}
-			}
-			return {
-				data,
-				ossBaseurl
-			};
-		}
-		let isOss = rs();
-		let client = new OSS.Wrapper({
-	      accessKeyId: 'LTAIMiCbPWCbEUFV',
-	      accessKeySecret: 'zOAfX2sSisNKZnQtOckYgMSTs6Fxvg',
-	      bucket: 'zhihuituiguang-imgs',
-	      endpoint: 'oss-cn-beijing.aliyuncs.com'
-	    }),
-	    baseurl = "http://zhihuituiguang-imgs.oss-cn-beijing.aliyuncs.com/";
-	    if(isOss){
-		    	if(isOss.data){
-				client = new OSS.Wrapper(isOss.data)
-			}
-			if(isOss.ossBaseurl){
-				baseurl = isOss.ossBaseurl;
-			}
-	    }
-	    if(!url.buffer){
-		    let token = GetRequest().token || 'test',
-      		data = new Date(),
-      		name = url.name,
-			storeAs = (src ? src : merchantinfoId + "/h5")+"/"+ data.getTime() + name,
-			haibao_url = baseurl + storeAs;
-			try{
-				let result = await client.multipartUpload(storeAs, url);
-				let bool = await getURL(haibao_url);
-				if(bool){
-					resolve(haibao_url)
-				}else{
-					reject()
-				}
-			}catch(e){
-				console.info(e)
-				reject()
-			}
-	    }else{
-	   	 	try{
-		    		let result = await client.put(url.storeAs, url.buffer);
-		    		let bool = await getURL(result.url);
-		    		if(bool){
-					resolve(result.url)
-				}else{
-					reject()
-				}
-	        }catch(e){
-				console.info(e)
-				reject()
-			}
-	    }
-	})
-}
-
-async function getURL(url){
-	return new Promise((resolve, reject) => {
-		try{
-            var xmlhttp =new XMLHttpRequest();
-            xmlhttp.open("GET",url,false);
-            xmlhttp.send();
-            if(xmlhttp.readyState==4){
-                if(xmlhttp.status!=200){
-            	  		resolve(false);
-                } else {
-            	  		resolve(true);
-                }
-            }
-            resolve(true);
-        }catch(e){
-			resolve(false);
-		}
-    })
-}
-
-export function GetRequest() {
-	return route.currentRoute.query;
-   var url = location.search; //获取url中"?"符后的字串
-   var theRequest = new Object();
-   if (url.indexOf("?") != -1) {
-      var str = url.substr(1);
-      var strs = str.split("&");
-      for(var i = 0; i < strs.length; i ++) {
-         theRequest[strs[i].split("=")[0]]=(strs[i].split("=")[1]);
-      }
-   }
-   return theRequest;
-}
 export function content(res){
 	if(res){
-		c = res;
-	    c = escape2Html(c);
-	    c = c.replace(/img src=/g,"img class='lazy' data-lazy=");
-	    c = c.replace(/preload="none"/g,"preload='metadata'");
-	    c = c.replace(/controls=""/g,"controls='' x5-video-player-type='h5' webkit-playsinline poster='http://tjweimi.oss-cn-zhangjiakou.aliyuncs.com/images/weimiApi/h51500453310139videoBgBack4.png'");
+	var c = res;
+	c = escape2Html(c);
+	c = c.replace(/img src=/g,"img class='lazy' data-lazy=");
+	c = c.replace(/preload="none"/g,"preload='metadata'");
+	c = c.replace(/controls=""/g,"controls='' x5-video-player-type='h5' webkit-playsinline poster='http://tjweimi.oss-cn-zhangjiakou.aliyuncs.com/images/weimiApi/h51500453310139videoBgBack4.png'");
 		return c;
-	};
+	}
 	return "";
 }
 function escape2Html(str) {
